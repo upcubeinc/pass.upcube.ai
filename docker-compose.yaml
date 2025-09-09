@@ -1,3 +1,5 @@
+version: "3.3"
+
 services:
   vaultwarden:
     image: vaultwarden/server:latest
@@ -5,11 +7,12 @@ services:
     restart: unless-stopped
     environment:
       WEBSOCKET_ENABLED: "true"
-      SIGNUPS_ALLOWED: "true"   # or "false" if you only want manual invites
+      SIGNUPS_ALLOWED: "true"   # can switch to false after testing
     volumes:
       - ./vw-data:/data
     ports:
       - "8085:80"
-      - "3012:3012"   # <-- websocket port
+      - "3012:3012"   # required for websockets
+
 
 
