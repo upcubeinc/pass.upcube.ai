@@ -11,5 +11,5 @@ services:
     volumes:
       - ./vw-data:/data
     ports:
-      - "8080:80"   # Expose Vaultwarden inside Coolify
+      - "8085:80"   # Expose Vaultwarden inside Coolify
 
