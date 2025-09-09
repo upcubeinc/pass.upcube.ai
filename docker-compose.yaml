@@ -1,5 +1,3 @@
-version: "3.3"
-
 services:
   vaultwarden:
     image: vaultwarden/server:latest
@@ -7,9 +5,11 @@ services:
     restart: unless-stopped
     environment:
       WEBSOCKET_ENABLED: "true"
-      SIGNUPS_ALLOWED: "false"
+      SIGNUPS_ALLOWED: "true"   # or "false" if you only want manual invites
     volumes:
       - ./vw-data:/data
     ports:
-      - "8085:80"   # Expose Vaultwarden inside Coolify
+      - "8085:80"
+      - "3012:3012"   # <-- websocket port
+
 
